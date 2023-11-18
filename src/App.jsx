@@ -2,13 +2,13 @@ import "./App.css";
 import React from "react";
 function App() {
   const [aramaMetni, setAramaMetni] = React.useState(
-    localStorage.getItem("aranan") || "React" || "Meric" 
+    localStorage.getItem("aranan") || "React" || "Ozay"
   );
   const yaziListesi = [
     {
       baslik: "React Öğreniyorum",
       url: "www.sdu.edu.tr",
-      yazar: "Sinan Yüksel",
+      yazar: "Merve Erden",
       yorum_sayisi: 3,
       puan: 4,
       id: 1,
@@ -22,25 +22,28 @@ function App() {
       id: 2,
     },
     {
-      baslik: "Meric React Ogrenemiyor",
-      url: "https://www.youtube.com/shorts/qkCNwH_63Fo",
-      yazar: "Meric Capar",
+      baslik: "Ozay React Ogrenemiyor",
+      url: "https://www.youtube.com/watch?v=uDeTc8ee8lc",
+      yazar: "Ozay Melih Yildiz",
       yorum_sayisi: 9,
       puan: 10,
       id: 3,
     },
     {
-      baslik: "Mericin Medium Hesabi",
-      url:"https://medium.com/@mericcaparrr",
-      yazar : "Admin",
-      yorum_sayisi:0,
-      puan:10,
-      id:4,
+      baslik: "Ozay'in Medium Hesabi",
+      url: "https://www.google.com/?hl=tr",
+      yazar: "Admin",
+      yorum_sayisi: 0,
+      puan: 10,
+      id: 4,
     },
   ];
   const arananYazilar = yaziListesi.filter(function (yazi) {
-    //Bu kodu bulmak hic kolay olmadi 
-    return yazi.baslik.toLowerCase().includes(aramaMetni.toLowerCase()) || yazi.yazar.toLowerCase().includes(aramaMetni.toLowerCase());
+    //Bu kodu bulmak hic kolay olmadi
+    return (
+      yazi.baslik.toLowerCase().includes(aramaMetni.toLowerCase()) ||
+      yazi.yazar.toLowerCase().includes(aramaMetni.toLowerCase())
+    );
   });
 
   const handleSearch = (event) => {
@@ -53,7 +56,7 @@ function App() {
 
   return (
     <div>
-      <h1>Mericin Arama Motoru</h1>
+      <h1>Ozay'in Arama Motoru</h1>
       <Arama aramaMetni={aramaMetni} onSearch={handleSearch} />
       <hr />
       <Liste yazilar={arananYazilar} />
